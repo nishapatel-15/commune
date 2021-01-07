@@ -5,15 +5,16 @@ import "firebase/storage";
 import "firebase/analytics";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCmjQ-QuDiTXe3YBU7zJQl0g5q-_mPt9UY",
-  authDomain: "discord-clone-66d9a.firebaseapp.com",
-  databaseURL: "https://discord-clone-66d9a.firebaseio.com",
-  projectId: "discord-clone-66d9a",
-  storageBucket: "discord-clone-66d9a.appspot.com",
-  messagingSenderId: "265446087212",
-  appId: "1:265446087212:web:392811aa65680282680f89",
-  measurementId: "G-XQPC1S7QLC"
-};
+	apiKey: "AIzaSyA8Rjwn693leLE4M2BlSWVBOtwOpy7ynKg",
+	authDomain: "chattir.firebaseapp.com",
+	databaseURL: "https://chattir-default-rtdb.firebaseio.com",
+	projectId: "chattir",
+	storageBucket: "chattir.appspot.com",
+	messagingSenderId: "51202480430",
+	appId: "1:51202480430:web:e9f329e5265ac8aacc42bf",
+	measurementId: "G-WFD1T8NEWQ",
+}
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
