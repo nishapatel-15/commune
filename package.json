@@ -1,6 +1,7 @@
 {
-  "name": "discord-clone",
+  "name": "commune",
   "version": "0.1.0",
+  "homepage": "http://localhost/commune",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

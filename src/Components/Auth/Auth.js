@@ -29,24 +29,24 @@ class Auth extends React.Component {
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
         user.user
-          .updateProfile({
-            displayName: username,
-            photoURL: `https://www.freepnglogos.com/uploads/discord-logo-png/seven-kingdoms-9.png`
-          })
-          .then(() => {
-            firebase
-              .database()
-              .ref("users")
-              .child(user.user.uid)
-              .set({
-                profile: {
-                  name: user.user.displayName,
-                  avatar: user.user.photoURL
-                }
-              })
-              .then(() => console.log("success"));
-          })
-          .catch(e => console.log(e));
+					.updateProfile({
+						displayName: username,
+						photoURL: "../../Assets/img/commune.png",
+					})
+					.then(() => {
+						firebase
+							.database()
+							.ref("users")
+							.child(user.user.uid)
+							.set({
+								profile: {
+									name: user.user.displayName,
+									avatar: user.user.photoURL,
+								},
+							})
+							.then(() => console.log("success"))
+					})
+					.catch((e) => console.log(e))
       })
       .catch(e => this.setState({ registerError: e }));
   };

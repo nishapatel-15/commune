@@ -130,11 +130,11 @@ class SidePannel extends React.Component {
 			<div className="sidepannel">
 				<Switch
 					active={selectedServer === null}
-					url="https://i.imgur.com/qMgJs45.png"
+					url={require("../../../Assets/img/commune.png")}
 					onClick={() => {
 						this.props.changeCurrentSelected({
-							server: null
-						});
+							server: null,
+						})
 					}}
 				/>
 				<div className="underline"></div>
@@ -157,7 +157,7 @@ class SidePannel extends React.Component {
 					/>
 				) : null}
 			</div>
-		);
+		)
 	}
 }
 
