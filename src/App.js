@@ -15,7 +15,7 @@ import {
 	setCall
 } from "./Reudux/Actions";
 const Auth = lazy(() => import("./Components/Auth/Auth"));
-const Discord = lazy(() => import("./Components/Discord/Discord"));
+const Commune = lazy(() => import("./Components/Commune/Commune"))
 
 class App extends React.Component {
 	componentDidMount() {
@@ -154,11 +154,11 @@ class App extends React.Component {
 					</Route>
 					<Route path="/*">
 						<Suspense fallback={<Spinner />}>
-							<Discord />
+							<Commune />
 						</Suspense>
 					</Route>
 				</Switch>
-			);
+			)
 	}
 }
 

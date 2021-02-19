@@ -1,37 +1,35 @@
-import React, { Component } from "react";
-import "./Discord.scss";
-import SidePannel from "./SidePannel/SidePannel";
-import firebase from "../../firebase";
-import { connect } from "react-redux";
-import { removeServer, selectServer } from "../../Reudux/Actions";
-import Channels from "./Channels/Channels";
-import UserPannel from "./UserPannel/UserPannel";
-import Messages from "./Messages/Messages";
-import Extra from "./Extra/Extra";
-import ServerUsers from "./Messages/ServerInfo/ServerUsers";
+import React, { Component } from "react"
+import "./Commune.scss"
+import SidePannel from "./SidePannel/SidePannel"
+import firebase from "../../firebase"
+import { connect } from "react-redux"
+import { removeServer, selectServer } from "../../Reudux/Actions"
+import Channels from "./Channels/Channels"
+import UserPannel from "./UserPannel/UserPannel"
+import Messages from "./Messages/Messages"
+import Extra from "./Extra/Extra"
+import ServerUsers from "./Messages/ServerInfo/ServerUsers"
 
-const extra = ["totalServers", "activity"];
-class Discord extends Component {
-	changeCurrentSelected = to => {
+const extra = ["totalServers", "activity"]
+class Commune extends Component {
+	changeCurrentSelected = (to) => {
 		if (to.server) {
-			const userRole = this.props.joinedServers[to.server].users[
-				this.props.user.uid
-			].role;
-			const roles = this.props.joinedServers[to.server].roles;
-			const role = this.props.joinedServers[to.server].roles[userRole] || null;
-			to.role = role;
-			to.roles = roles;
+			const userRole = this.props.joinedServers[to.server].users[this.props.user.uid].role
+			const roles = this.props.joinedServers[to.server].roles
+			const role = this.props.joinedServers[to.server].roles[userRole] || null
+			to.role = role
+			to.roles = roles
 		}
-		this.props.selectServer(to);
-	};
+		this.props.selectServer(to)
+	}
 
-	getMessages = messages => {
+	getMessages = (messages) => {
 		try {
-			return messages[this.props.server][this.props.channel.id];
+			return messages[this.props.server][this.props.channel.id]
 		} catch (e) {
-			return null;
+			return null
 		}
-	};
+	}
 
 	render() {
 		const {
@@ -45,10 +43,10 @@ class Discord extends Component {
 			roles,
 			selectedDM,
 			dm,
-			dms
-		} = this.props;
+			dms,
+		} = this.props
 		return (
-			<div className="discord">
+			<div className="commune">
 				<SidePannel
 					selectedServer={server}
 					changeCurrentSelected={this.changeCurrentSelected}
@@ -93,26 +91,21 @@ class Discord extends Component {
 					<div className="messages-wrapper">
 						<Messages
 							dm={{ ...dms[dm], id: dm }}
-							headerName={
-								"@ " +
-								(dms[dm].user1.uid === user.uid
-									? dms[dm].user2.name
-									: dms[dm].user1.name)
-							}
+							headerName={"@ " + (dms[dm].user1.uid === user.uid ? dms[dm].user2.name : dms[dm].user1.name)}
 							user={user}
 						/>
 					</div>
 				)}
 			</div>
-		);
+		)
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		removeServer: id => dispatch(removeServer(id)),
-		selectServer: id => dispatch(selectServer(id))
-	};
+		removeServer: (id) => dispatch(removeServer(id)),
+		selectServer: (id) => dispatch(selectServer(id)),
+	}
 }
 
 function mapStateToProps(state) {
@@ -127,8 +120,8 @@ function mapStateToProps(state) {
 		roles: state.server.roles,
 		dms: state.server.dms,
 		dm: state.server.dm,
-		call: state.server.call
-	};
+		call: state.server.call,
+	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Discord);
+export default connect(mapStateToProps, mapDispatchToProps)(Commune)
