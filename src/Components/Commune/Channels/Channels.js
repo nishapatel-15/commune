@@ -246,18 +246,18 @@ class Channels extends React.Component {
 				{isAdmin ? (
 					<Fragment>
 						<div className="item" onClick={() => this.handleCreate("Channel")}>
-							create channel
+							Create Channel
 						</div>
 						<div className="item" onClick={() => this.handleCreate("Category")}>
-							create category
+							Create Category
 						</div>
 						<div className="item delete" onClick={this.handleDeleteServer}>
-							delete server
+							Delete Server
 						</div>
 					</Fragment>
 				) : (
 					<div className="item leave" onClick={this.handleLeaveServer}>
-						leave server
+						Leave Server
 					</div>
 				)}
 			</div>
