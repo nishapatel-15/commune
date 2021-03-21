@@ -81,13 +81,13 @@
 	}
 	.channel {
 		// background-color: var(--color-4);
-		width: 85%;
+		width: auto;
 		margin: 0.3rem auto;
 		padding: 0.8rem 0.5rem;
 		border-radius: 4px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		// display: flex;
+		// align-items: center;
+		// justify-content: space-between;
 		cursor: pointer;
 		color: var(--color-1);
 		.hash {

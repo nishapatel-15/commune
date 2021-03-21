@@ -71,19 +71,11 @@ const UserBar = props => {
 	return (
 		<div className="userbar">
 			<div>
-				<div
-					className="photo"
-					style={{ backgroundImage: `url(${user.photoURL})` }}
-				></div>
+				<div className="photo" style={{ backgroundImage: `url(${user.photoURL})` }}></div>
 				<div className="">{user.displayName}</div>
 			</div>
 			<div>
-				<div className="icon mic-icon"></div>
-				<div className="icon headphone-icon"></div>
-				<div
-					className="icon settings-icon"
-					onClick={() => setShowSettings(true)}
-				></div>
+				<div className="icon settings-icon" onClick={() => setShowSettings(true)}></div>
 			</div>
 			{showSettings ? (
 				<UserSettings
@@ -94,7 +86,7 @@ const UserBar = props => {
 				/>
 			) : null}
 		</div>
-	);
+	)
 };
 
 const mapStateToProps = state => ({

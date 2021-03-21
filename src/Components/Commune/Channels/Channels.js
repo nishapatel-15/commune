@@ -240,9 +240,6 @@ class Channels extends React.Component {
 		const isAdmin = this.props.userRole.isAdmin;
 		return (
 			<div className="dropdown">
-				<div className="item invite" onClick={this.handleInviteLink}>
-					Invite
-				</div>
 				{isAdmin ? (
 					<Fragment>
 						<div className="item" onClick={() => this.handleCreate("Channel")}>
@@ -261,7 +258,7 @@ class Channels extends React.Component {
 					</div>
 				)}
 			</div>
-		);
+		)
 	};
 
 	handleHeaderClick = () =>
