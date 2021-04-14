@@ -124,10 +124,7 @@ const MessageForm = props => {
 	};
 
 	return (
-		<div
-			className="messageform"
-			style={{ width: props.server ? "65%" : "81%" }}
-		>
+		<div className="messageform" style={{ width: props.server ? "65%" : "81%" }}>
 			<div className="file">
 				<label htmlFor="file">+</label>
 				<input type="file" id="file" onChange={openModal} />
@@ -137,11 +134,11 @@ const MessageForm = props => {
 				<textarea
 					type="text"
 					value={message}
-					onChange={e => setMessage(e.target.value)}
-					onKeyPress={e => handleKeyDown(e)}
+					onChange={(e) => setMessage(e.target.value)}
+					onKeyPress={(e) => handleKeyDown(e)}
 					placeholder={`# message `}
 					autoFocus
-					ref={ref => (inputRef = ref)}
+					ref={(ref) => (inputRef = ref)}
 				/>
 			</form>
 
@@ -151,12 +148,12 @@ const MessageForm = props => {
 					className="emoji-picker-btn"
 					aria-label="emoji"
 					onClick={() => {
-						setShowEmojiPicker(!showEmojiPicker);
-						setShowGiphyPicker(false);
+						setShowEmojiPicker(!showEmojiPicker)
+						setShowGiphyPicker(false)
 					}}
 				></span>
 				{showEmojiPicker ? (
-					<EmojiPicker onSelect={emojiObj => setEmoji(emojiObj)} />
+				<EmojiPicker onSelect={(emojiObj) => setEmoji(emojiObj)}  style={{position:"absolute"}}/>
 				) : null}
 			</div>
 
@@ -164,29 +161,24 @@ const MessageForm = props => {
 				<div
 					className="giphy-picker-btn"
 					onClick={() => {
-						setShowGiphyPicker(!showGiphyPicker);
-						setShowEmojiPicker(false);
+						setShowGiphyPicker(!showGiphyPicker)
+						setShowEmojiPicker(false)
 					}}
 				>
 					GIF
 				</div>
 				{showGiphyPicker ? (
 					<div className="giphy-picker-box">
-						<GiphyPicker onSelected={giphyObj => setGiphy(giphyObj)} />
+						<GiphyPicker onSelected={(giphyObj) => setGiphy(giphyObj)} />
 					</div>
 				) : null}
 			</div>
 
 			{preview ? (
-				<FileUploadPrev
-					file={file}
-					closeModal={closeModal}
-					sendFile={sendFile}
-					percentage={percentage}
-				/>
+				<FileUploadPrev file={file} closeModal={closeModal} sendFile={sendFile} percentage={percentage} />
 			) : null}
 		</div>
-	);
+	)
 };
 
 export default MessageForm;
